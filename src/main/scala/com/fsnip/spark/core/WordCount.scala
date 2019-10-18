@@ -22,7 +22,7 @@ object WordCount {
 
     val lines = sc.textFile("/user/test2/word.txt")
 
-    val wordCount =lines.repartition(1).flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
+    val wordCount =lines.flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
 
     wordCount.foreach(println(_))
 
