@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://DaFa3:8020/hbase</value>
+    <value>hdfs://nameservice1/hbase</value>
   </property>
   <property>
     <name>hbase.client.write.buffer</name>
@@ -48,11 +48,11 @@
   </property>
   <property>
     <name>hbase.coprocessor.master.classes</name>
-    <value>org.apache.hadoop.hbase.security.access.AccessController,org.apache.hadoop.hbase.security.access.AccessController</value>
+    <value>org.apache.hadoop.hbase.security.access.AccessController</value>
   </property>
   <property>
     <name>hbase.coprocessor.region.classes</name>
-    <value>org.apache.hadoop.hbase.security.access.AccessController,org.apache.hadoop.hbase.security.access.SecureBulkLoadEndpoint,org.apache.hadoop.hbase.security.token.TokenProvider,org.apache.hadoop.hbase.security.access.AccessController</value>
+    <value>org.apache.hadoop.hbase.security.access.SecureBulkLoadEndpoint</value>
   </property>
   <property>
     <name>hbase.regionserver.thrift.http</name>
@@ -68,7 +68,7 @@
   </property>
   <property>
     <name>hbase.rpc.timeout</name>
-    <value>600000</value>
+    <value>60000</value>
   </property>
   <property>
     <name>hbase.snapshot.enabled</name>
@@ -96,7 +96,7 @@
   </property>
   <property>
     <name>zookeeper.session.timeout</name>
-    <value>600000</value>
+    <value>120000</value>
   </property>
   <property>
     <name>zookeeper.znode.parent</name>
@@ -108,7 +108,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>DaFa3,DaFa5,DaFa1,DaFa4,DaFa2</value>
+    <value>wbbigdata02,wbbigdata00,wbbigdata01</value>
   </property>
   <property>
     <name>hbase.zookeeper.property.clientPort</name>

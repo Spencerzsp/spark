@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>hive.metastore.uris</name>
-    <value>thrift://DaFa3:9083</value>
+    <value>thrift://wbbigdata00:9083</value>
   </property>
   <property>
     <name>hive.metastore.client.socket.timeout</name>
@@ -140,7 +140,7 @@
   </property>
   <property>
     <name>spark.executor.memory</name>
-    <value>502687334</value>
+    <value>487981056</value>
   </property>
   <property>
     <name>spark.driver.memory</name>
@@ -156,7 +156,7 @@
   </property>
   <property>
     <name>spark.yarn.executor.memoryOverhead</name>
-    <value>84</value>
+    <value>82</value>
   </property>
   <property>
     <name>spark.dynamicAllocation.enabled</name>
@@ -178,10 +178,13 @@
     <name>hive.metastore.execute.setugi</name>
     <value>true</value>
   </property>
-  <!--'hive.support.concurrency', originally set to 'true' (non-final), is overridden below by a safety valve-->
+  <property>
+    <name>hive.support.concurrency</name>
+    <value>true</value>
+  </property>
   <property>
     <name>hive.zookeeper.quorum</name>
-    <value>DaFa3,DaFa5,DaFa1,DaFa4,DaFa2</value>
+    <value>wbbigdata02,wbbigdata00,wbbigdata01</value>
   </property>
   <property>
     <name>hive.zookeeper.client.port</name>
@@ -193,7 +196,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>DaFa3,DaFa5,DaFa1,DaFa4,DaFa2</value>
+    <value>wbbigdata02,wbbigdata00,wbbigdata01</value>
   </property>
   <property>
     <name>hbase.zookeeper.property.clientPort</name>
@@ -214,45 +217,5 @@
   <property>
     <name>spark.shuffle.service.enabled</name>
     <value>true</value>
-  </property>
-  <property>
-    <name>hive.security.authorization.enabled</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>hive.security.authorization.createtable.owner.grants</name>
-    <value>ALL</value>
-  </property>
-  <property>
-    <name>hive.security.authorization.task.factory</name>
-    <value>org.apache.hadoop.hive.ql.parse.authorization.HiveAuthorizationTaskFactoryImpl</value>
-  </property>
-  <property>
-    <name>hive.txn.manager</name>
-    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-  </property>
-  <property>
-    <name>hive.support.concurrency</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>hive.enforce.bucketing</name>
-    <value>true</value>
-  </property>
-  <property>
-    <name>hive.exec.dynamic.partition.mode</name>
-    <value>nonstrict</value>
-  </property>
-  <property>
-    <name>hive.compactor.worker.threads</name>
-    <value>1</value>
-  </property>
-  <property>
-    <name>hive.semantic.analyzer.hook</name>
-    <value>com.fsnip.bigdata.AuthHook</value>
-  </property>
-  <property>
-    <name>hive.users.in.admin.role</name>
-    <value>root</value>
   </property>
 </configuration>

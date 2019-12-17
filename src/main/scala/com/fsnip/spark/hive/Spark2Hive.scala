@@ -27,9 +27,12 @@ object Spark2Hive {
     Logger.getRootLogger.setLevel(Level.WARN)
 
     spark.sql("show databases").show()
-//    spark.sql("select * from fsncloud.ods_fsn_cloud2business_brand limit 10").show()
 
-//    spark.sql("select a.id, a.name, a.status from ods.ods_fsn_cloud2product a limit 10").show()
+//    spark.sql("select title, count(*) count from helping_poor.ods_helping_poor2detailed group by title order by count desc").show(truncate = false)
+
+    spark.sql("SELECT * FROM ods_helping_poor.ods_helping_poor2detailed").show()
+//      .show(truncate = false)
+
 
 //    spark.sql("create table test.person(name string, age int, addr string) row format delimited fields terminated by '\t'" )
 
@@ -37,10 +40,6 @@ object Spark2Hive {
 //    val sc = spark.sparkContext
 //    val df0 = sc.textFile("/user/root/table_count_merge.txt").map(mapFunctionToTuple4).toDF("id", "table_name", "count", "time")
 //    df0.show(50, truncate = false)
-
-//    spark.sql("use ods")
-//    val tables = spark.sql("show tables").select("tableName")
-//    println(tables.count())
 
 //    tables.createOrReplaceTempView("tables")
 //    spark.sql("select * from tables").show()

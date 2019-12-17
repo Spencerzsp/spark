@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://DaFa3:8020</value>
+    <value>hdfs://nameservice1</value>
   </property>
   <property>
     <name>fs.trash.interval</name>
@@ -137,19 +137,19 @@
     <final>true</final>
   </property>
   <property>
-    <name>hadoop.proxyuser.root.hosts</name>
-    <value>*</value>
-  </property>
-  <property>
-    <name>hadoop.proxyuser.root.groups</name>
-    <value>*</value>
-  </property>
-  <property>
     <name>hadoop.proxyuser.hue.hosts</name>
     <value>*</value>
   </property>
   <property>
     <name>hadoop.proxyuser.hue.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hbase.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hbase.groups</name>
     <value>*</value>
   </property>
 </configuration>

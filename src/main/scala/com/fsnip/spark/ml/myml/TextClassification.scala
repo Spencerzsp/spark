@@ -91,22 +91,22 @@ object TextClassification {
         LabeledPoint(label.toDouble, Vectors.dense(features.toArray))
     }
 
-    val testPredictionAndLabel = testDataRDD.map(p =>(modelBayes.predict(p.features), p.label))
-    val predictions = modelBayes.transform(testDataRDD)
-    predictions.select("prediction", "rawPrediction", "probability").show(1, false)
+//    val testPredictionAndLabel = testDataRDD.map(p =>(modelBayes.predict(p.features), p.label))
+//    val predictions = modelBayes.transform(testDataRDD)
+//    predictions.select("prediction", "rawPrediction", "probability").show(1, false)
 //    统计分类准确率
-    var accuracy = 1.0 * testPredictionAndLabel.filter(x => x._1 == x._2).count() / testDataRDD.count()
+//    var accuracy = 1.0 * testPredictionAndLabel.filter(x => x._1 == x._2).count() / testDataRDD.count()
     println("output5: ")
-    println(accuracy)
+//    println(accuracy)
 
     val evaluator = new MulticlassClassificationEvaluator()
       .setLabelCol("label")
       .setPredictionCol("prediction")
       .setMetricName("accuracy")
-    val accuracy2 = evaluator.evaluate(predictions)
+//    val accuracy2 = evaluator.evaluate(predictions)
 
     println("output6: ")
-    println(accuracy2)
+//    println(accuracy2)
 
 //    val modelPath = "file:///F:\\scala-workspace\\spark\\data\\model\\naive_bayes_model"
 //    modelBayes.save(modelPath)

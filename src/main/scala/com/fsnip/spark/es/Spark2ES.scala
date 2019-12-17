@@ -29,12 +29,12 @@ object Spark2ES {
 //    printf("============RDD写入ES成功！！！=================")
 
     val resultRdd = EsSpark.esRDD(sc, "/student/type")
-    resultRdd.foreach(println)
+//    resultRdd.foreach(println)
 
     val df = sparkSession.createDataFrame(sc.parallelize(Seq(
       StudentInfo("小明", "男", 18),
-      StudentInfo("小明", "男", 18),
-      StudentInfo("小明", "男", 18)
+      StudentInfo("小红", "女", 19),
+      StudentInfo("小放", "女", 20)
     ))).toDF("name", "sex", "age")
     EsSparkSQL.saveToEs(df, "/student/type", map)
 

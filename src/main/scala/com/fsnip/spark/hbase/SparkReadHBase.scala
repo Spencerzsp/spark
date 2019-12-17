@@ -33,10 +33,10 @@ object SparkReadHBase {
 //    如果表不存在则创建表
 
 //    val admin = new HBaseAdmin(conf)
-//    if(!admin.isTableAvailable(tableName)){
-//      val tableDec = new HTableDescriptor(TableName.valueOf(tableName))
-//      admin.createTable(tableDec)
-//    }
+    //    if(!admin.isTableAvailable(tableName)){
+    //      val tableDec = new HTableDescriptor(TableName.valueOf(tableName))
+    //      admin.createTable(tableDec)
+    //    }
 
 //    读取数据并转换为RDD
     val hbaseRDD = sc.newAPIHadoopRDD(conf, classOf[TableInputFormat],
@@ -48,16 +48,16 @@ object SparkReadHBase {
 
 //    hbaseRDD.foreach(println)
 
-    hbaseRDD.foreach{case (_, result) => {
-      //获取行键
-      val key = Bytes.toString(result.getRow)
-      //通过列族和列名获取列,且必须全部将字节转换成字符串
-      val id = Bytes.toString(result.getValue("cf".getBytes,"id".getBytes))
-      val name = Bytes.toString(result.getValue("cf".getBytes,"name".getBytes))
-      val age = Bytes.toString(result.getValue("cf".getBytes,"age".getBytes))
-      val address = Bytes.toString(result.getValue("cf".getBytes,"addr".getBytes))
-      println("Row key:"+key+" Name:"+name+" Age:"+age + " ID:"+id + " Addr:" + address)
-    }}
+//    hbaseRDD.foreach{case (_, result) => {
+//      //获取行键
+//      val key = Bytes.toString(result.getRow)
+//      //通过列族和列名获取列,且必须全部将字节转换成字符串
+//      val id = Bytes.toString(result.getValue("cf".getBytes,"id".getBytes))
+//      val name = Bytes.toString(result.getValue("cf".getBytes,"name".getBytes))
+//      val age = Bytes.toString(result.getValue("cf".getBytes,"age".getBytes))
+//      val address = Bytes.toString(result.getValue("cf".getBytes,"addr".getBytes))
+//      println("Row key:"+key+" Name:"+name+" Age:"+age + " ID:"+id + " Addr:" + address)
+//    }}
 
     sc.stop()
 //    admin.close()

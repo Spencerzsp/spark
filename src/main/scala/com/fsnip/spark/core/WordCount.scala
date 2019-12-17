@@ -20,7 +20,7 @@ object WordCount {
 //    读取本地文件计算
 //    val lines = sc.textFile("file:///f:\\word.txt")
 
-    val lines = sc.textFile("/user/test2/word.txt")
+    val lines = sc.textFile("/input/test.txt")
 
     val wordCount =lines.flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
 
